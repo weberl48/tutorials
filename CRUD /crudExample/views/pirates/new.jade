@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  
+  h1 Create A Pirate
+  
+  form(action="/pirates/new" method="post")
+    p
+      label(for="name") Pirate name
+    p   
+      input(type="text" id="name" name="name")
+    p  
+      label(for="accessory") Accessory
+    p
+      input(type="text" id="accessory" name="accessory")
+    p 
+      input(type="text" id="name" name="name")
+    p
+    label(for="poisoin") Poison  
+    input(type="text" id="poison" name="poison")
+    p
+      input(type="submit" value="Create Pirate") Create Pirate
+        

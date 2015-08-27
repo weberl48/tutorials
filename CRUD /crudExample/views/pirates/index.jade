@@ -1,0 +1,21 @@
+extend ../layout
+
+block content
+  h1 Hello Pirates
+
+  a(href="/pirates/new") New Pirate
+  
+  table
+    thead
+      tr
+        th Name
+        th Poison
+        th Accessory
+    tbody
+      for pirate in pirates
+        tr
+          td 
+            a(href="/pirates/" + pirate._id + "/show")=pirate.name
+          td= pirate.poison
+          td= pirate.accessory
+              

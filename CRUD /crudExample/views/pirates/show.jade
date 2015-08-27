@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  h1 Showing #{pirate}
+  
+  p= pirate.accessory
+  p= pirate.poison
+  
+  a(href="pirates/"+pirate._id+'/edit') Edit
+  form(method ='post', action="/pirates/" + pirate._id + '/delete')
+        p
+        input(type='submit' value="Delete")

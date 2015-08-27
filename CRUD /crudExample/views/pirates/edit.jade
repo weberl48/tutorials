@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+  h1 Showing #{pirate}
+  
+  form(action="/pirates/"+ pirate._id +"/update" method="post")
+    p
+      label(for="name") Pirate name
+    p   
+      input(type="text" id="name" name="name" value=(pirate ? pirate.name : ""))
+    p  
+      label(for="accessory" value=(pirate ? pirate.name : "")) Accessory
+    p
+      input(type="text" id="accessory" name="accessory" value=(pirate ? pirate.accessory : ""))
+    p 
+      input(type="text" id="name" name="name")
+    p
+    label(for="poisoin") Poison  
+    input(type="text" id="poison" name="poison" value=(pirate ? pirate.poison : ""))
+    p
+      input(type="submit" value="Edit Pirate") Create Pirate
+        
