@@ -18,12 +18,12 @@ $("section").each(function() {
     triggerElement: this
   })
   .setPin(this)
-  .addIndicators({
-    colorStart: "rgba(255,255,255,0.5)",
-    colorEnd: "rgba(255,255,255,0.5)",
-    colorTrigger : "rgba(255,255,255,1)",
-    name:name
-    })
+  // .addIndicators({
+  //   colorStart: "rgba(255,255,255,0.5)",
+  //   colorEnd: "rgba(255,255,255,0.5)",
+  //   colorTrigger : "rgba(255,255,255,1)",
+  //   name:name
+  //   })
   .loglevel(3)
   .addTo(ctrl);
 
