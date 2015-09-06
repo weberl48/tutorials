@@ -26,27 +26,37 @@ Controller for the discover page
     }
  ];
    $scope.currentSong = angular.copy($scope.songs[0]);
+   $scope.removeSong = function(song, index) {
+    User.removeSongFromFavorites(song, index);
+  }
    // fired when we favorite / skip a song.
    // fired when we favorite / skip a song.
    $scope.sendFeedback = function (bool) {
+     // first, add to favorites if they favorited
+     if (bool) User.addSongToFavorites($scope.currentSong);
+       // set variable for the correct animation sequence
+       $scope.currentSong.rated = bool;
+       $scope.currentSong.hide = true;
 
-     // set the current song to one of our three songs
-     var randomSong = Math.round(Math.random() * ($scope.songs.length - 1));
+       $timeout(function() {
+         // $timeout to allow animation to complete before changing to next song
+         // set the current song to one of our three songs
+         var randomSong = Math.round(Math.random() * ($scope.songs.length - 1));
 
-     // update current song in scope
-     $scope.currentSong = angular.copy($scope.songs[randomSong]);
+         // update current song in scope
+         $scope.currentSong = angular.copy($scope.songs[randomSong]);
 
-   }
-
-})
+       }, 250);
+     }
 
 
 
 /*
 Controller for the favorites page
 */
-.controller('FavoritesCtrl', function($scope) {
-
+.controller('FavoritesCtrl', function($scope, User) {
+  // get the list of our favorites from the user service
+  $scope.favorites = User.favorites;
 })
 
 
@@ -54,5 +64,9 @@ Controller for the favorites page
 Controller for our tab bar
 */
 .controller('TabsCtrl', function($scope) {
+
+});
+
+.controller('DiscoverCtrl', function($scope, $timeout, User) {
 
 });
