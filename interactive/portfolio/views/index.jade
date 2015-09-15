@@ -1,0 +1,48 @@
+extends layout
+
+block content
+  .spacer.s0
+     #parallax1.parallaxParent
+       div
+     .spacer.s1
+       .box2.blue
+         p Content 1
+         a.viewsource(href='#') view source
+     .spacer.s0
+     #parallax2.parallaxParent
+       div
+     .spacer.s1
+       .box2.blue
+         p Content 2
+         a.viewsource(href='#') view source
+     .spacer.s0
+     #parallax3.parallaxParent
+       div
+     .spacer.s2
+     // <!— Include ScrollMagic —>
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/debug.addIndicators.min.js')
+  
+  // <!— Include main.js for our custom code —>
+    script(src='bower_components/plugins/animation.gsap.js')
+    script(src='javascripts/greensock.js')
+    script(src='public/javascripts/parralax.js')
+    script.
+      var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", duration: "200%"}});
+      // build scenes
+
+      new ScrollMagic.Scene({triggerElement: "#parallax1"})
+      .setTween("#parallax1 > div", {y: "80%", ease: Linear.easeNone})
+      .addIndicators()
+      .addTo(controller);
+      new ScrollMagic.Scene({triggerElement: "#parallax2"})
+      .setTween("#parallax2 > div", {y: "80%", ease: Linear.easeNone})
+      .addIndicators()
+      .addTo(controller);
+      new ScrollMagic.Scene({triggerElement: "#parallax3"})
+      .setTween("#parallax3 > div", {y: "80%", ease: Linear.easeNone})
+      .addIndicators()
+      .addTo(controller);
+    
+
+    

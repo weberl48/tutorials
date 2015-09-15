@@ -1,0 +1,32 @@
+<head>
+  <title>Todo List</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Todo List</h1>
+
+      <form class="new-task">
+        <input name="text" placeholder="Type to add new tasks" type="text"/>
+      </form>
+    </header>
+
+    <ul>
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
+
+<template name="task">
+<li>{{text}}</li>
+</template>
+<!-- Everything inside template is compiled into Meteor templates -->
+<!-- Spacbars is a meteor template language inspired by Handlebars.
+    {{pageTitle}} - double braced template tags are used to insert a string of text
+    {{> nav}} - inclusion template tag, used to insert another template by name
+    {{#each}} - block template tag block tags #if, #each, #with, and #unless are built in
+    {{{}}} -  triple braced tages are used to insert raw html
+  -->

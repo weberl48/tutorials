@@ -1,0 +1,31 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url(../images/images.jpeg);
+}
+
+a {
+  color: #00B7FF;
+}
+
+.parallaxParent {
+  height: 100vh;
+  overflow: hidden;
+}
+.parallaxParent > * {
+  height: 200%;
+  position: relative;
+  top: -100%;
+}
+#parallax1:first-child {
+  background-image: url(../../img/example_parallax_bg1.png);
+  background-color: red;
+}
+#parallax2:first-child {
+  background-image: url(../../img/example_parallax_bg2.png);
+  background-color: blue;
+}
+#parallax3:first-child {
+background-image: url(../../img/example_parallax_bg3.png);
+background-color: blue;
+}
