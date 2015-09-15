@@ -21,7 +21,14 @@
 </body>
 
 <template name="task">
-<li>{{text}}</li>
+  <li class="{{#if checked}}checked{{/if}}">
+    <!-- if the checked property of a task is true, the checked class is added to out list item. -->
+    <button class="delete">&times;</button>
+
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+    <span class="text">{{text}}</span>
+  </li>
 </template>
 <!-- Everything inside template is compiled into Meteor templates -->
 <!-- Spacbars is a meteor template language inspired by Handlebars.

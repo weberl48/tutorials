@@ -50,7 +50,21 @@ Template.body.events({
     event.target.text.value = "";
   }
 });
-}
 // listening to the submit event on any element that matches the CSS selector .new-task.
 // event.target - is form element, get value using event.target.text.value
 // event.target.text.value = "", is clearing input for new entrys
+
+Template.task.events({
+    "click .toggle-checked": function () {
+      // Set the checked property to the opposite of its current value
+      Tasks.update(this._id, {
+        $set: {checked: ! this.checked}
+      });
+    },
+    "click .delete": function () {
+      Tasks.remove(this._id);
+    }
+  });
+}
+// this refers to an individual task object
+// _id - every inserted document has a unique _id.
