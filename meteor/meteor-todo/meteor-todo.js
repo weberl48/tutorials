@@ -18,7 +18,16 @@ if (Meteor.isClient) {
   // This code only runs on the client
   Template.body.helpers({
     tasks: function() {
-      return Tasks.find({}, {sort: {createdAt: -1}}); // sort: by newest task first
+      if (Session.get("hideCompleted")) {
+          // If hide completed is checked, filter tasks
+          return Tasks.find({checked: {$ne: true}}, {sort: {createdAt: -1}});
+        } else {
+          // Otherwise, return all of the tasks
+          return Tasks.find({}, {sort: {createdAt: -1}}); // sort by newest first
+        }
+      },
+      hideCompleted: function () {
+        return Session.get("hideCompleted");
     }
   });
 
@@ -48,12 +57,20 @@ Template.body.events({
 
     // Clear form
     event.target.text.value = "";
-  }
-});
+  },
+  "change .hide-completed input": function (event) {
+      Session.set("hideCompleted", event.target.checked);
+    },
+    incompleteCount: function () {
+      return Tasks.find({checked: {$ne: true}}).count();
+    }
+  });
+
 // listening to the submit event on any element that matches the CSS selector .new-task.
 // event.target - is form element, get value using event.target.text.value
 // event.target.text.value = "", is clearing input for new entrys
-
+// session is a reactive data store for the client
+  // - convienet place to store temporary UI state
 Template.task.events({
     "click .toggle-checked": function () {
       // Set the checked property to the opposite of its current value
