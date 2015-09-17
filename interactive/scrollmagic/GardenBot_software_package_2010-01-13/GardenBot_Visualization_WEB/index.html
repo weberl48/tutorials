@@ -1,0 +1,32 @@
+<!--
+
+This is the most simple implementation of GardenBot's charting feature -- with OpenFlashChart.
+
+-->
+
+
+<html>
+<head>
+ 
+<script type="text/javascript" src="open-flash-chart/js/swfobject.js"></script>
+
+<script type="text/javascript">
+swfobject.embedSWF(
+	"open-flash-chart/open-flash-chart.swf", 
+	"my_chart", 
+	"660", "300", 
+	"9.0.0","expressInstall.swf",
+	{"data-file":"chartData_MS.json"} 
+);
+
+</script>
+
+ 
+</head>
+<body>
+  
+<div id="my_chart"></div>
+ 
+ 
+</body>
+</html>
