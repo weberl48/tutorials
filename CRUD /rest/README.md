@@ -1,8 +1,11 @@
 #What is a REST API?
-- REST: Representational State Transfer
-- lighter weight alternative to SOAP and WSDL XML-based API protocols.
-- users a client-server model. server is an HTTP server and the client sends HTTP verbs (GET, POST,PUT,DELETE), a URL and URL-encoded variable parameters.
-- URL describes the object to act upon and the server replies with a result code and JSON.
+REST: Representational State Transfer
+  - lighter weight alternative to SOAP and WSDL XML-based API protocols.
+  - users a client-server model. server is an HTTP server and the client
+  sends HTTP verbs (GET, POST,PUT,DELETE), a URL and URL-encoded variable parameters.
+  - URL describes the object to act upon and the server replies with
+  result code and JSON.
+
 #CRUD to HTTP verbs
 - POST: client wants to insert or create an object
 - GET: client wants to read an object.

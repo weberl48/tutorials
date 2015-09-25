@@ -1,0 +1,7 @@
+.box-with-text {
+  background-image: -webkit-linear-gradient(transparent, transparent),
+  url(galaxy-wallpapers-11.jpg);
+  font-size: 400px;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
