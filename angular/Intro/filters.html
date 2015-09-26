@@ -15,6 +15,25 @@
     <p ng-repeat="person in test.people | filter: search">
       {{person.name}}
     </p>
+    <h1>Built in Filters</h1>
+    <h2>orderBy</h2>
+    <p ng-repeat="person in test.people | orderBy:'name'">
+      {{person.name}}
+    <h2>limitTo</h2>
+    <p ng-repeat="person in test.people | limitTo:2">
+      {{person.name}}
+    <h2>Chaining filters</h2>
+    <p ng-repeat="person in test.people | filter:search | orderBy:'name'  | limitTo: 2">
+      {{person.name}}
+    <p>
+      By default, this will search all attributes in the people objects (currently that includes name and born). You can have it search specific attributes by dotting the field name in the model like so:
+
+<!-- "<input type="text" ng-model="search.name" />" -->
+
+For a general search across all attributes, you can simply use $:
+
+<!-- <input type="text" ng-model="search.$" /> -->
+    </p>
       </div>
   </body>
 </html>
