@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Controllers</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js" type="text/javascript"></script>
+    <script src="app.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <nav>
+    <li>
+      <a href="index.html">Binding</a>
+    </li>
+    <li>
+      <a href="controller.html">Controllers</a>
+    </li>
+  </nav>
+  ng-app directive tells angular what module to look for when angular boots up. Modules name is app.
+  <div class="" ng-app="app">
+    <h1>Controllers</h1>
+    <div class="" ng-controller="MainCtrl">
+      <p>
+        {{ message }}
+      </p>
+      <form ng-submit="updateMessage(newMessage)">
+        <p>
+          ng-submit directive contains an Angular expression that gets executed when the form gets submitted
+        </p>
+        <input ng-model="newMessage" type="text">
+        <button name="button" type="submit">Update Message</button>
+      </form>
+    </div>
+    <div class="controllerAs" ng-controller="MainAsCtrl as main">
+      <h1>Controller As Syntax</h1>
+      <p>
+        since each controller gets assinger thier own scope, controllers that are nested can have trouble accessing variables from the parent scope. Specifically when data is being read from a hild controller, where the calue is directly assigned to the parent $scope and not namespaced within an object (accessing $scope.data.message will work from a child controller but accessing $scope.message can break). Controller as syntax makes it so that your controllers can be directly referenced within the view
+      </p>
+      <h2>Digging into Angulars 'Controller as' syntax</h2>
+      <p>
+        Controllers are class-like Objects that drive Model and View changes. Many developers suggesting using the this keyword instead of $scope.
+
+      </p>
+      <b>Nested scopes</b>
+      <p>
+        nested scopes is where we see great return from the controller as syntax, usually we would have to use the currents scope's $parent property to scale back up scopes to get where we need.
+      </p>
+
+      <p>
+        {{main.message}}
+      </p>
+      <form ng-submit="main.changeMessage(main.newMessage)">
+        <input ng-model="main.newMessage" type="text">
+        <button type="submit">Change Message</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
