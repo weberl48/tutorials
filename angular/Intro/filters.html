@@ -10,6 +10,11 @@
     <div ng-controller="TestCtrl as test">
     <input type="text" ng-model="test.myString"/>
     <h2>{{ test.myString | capitalize }}</h2>
+    <label for="search"> Search List:</label>
+    <input type="text" ng-model="search" name="search"/>
+    <p ng-repeat="person in test.people | filter: search">
+      {{person.name}}
+    </p>
       </div>
   </body>
 </html>

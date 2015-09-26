@@ -1,6 +1,21 @@
 function TestCtrl() {
   var self = this;
   self.myString = "hello world"
+  self.people = [
+
+    {
+      name: 'Eric Simons',
+      born: "Chicago"
+    },
+    {
+      name: "Albert Pai",
+      born: "Taiwan"
+    },
+    {
+      name: "Matthew Greenster",
+      born: "Virginia"
+    }
+  ];
 }
 // this is where the filter magic happens
 function CapitalizeFilter(){
